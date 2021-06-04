@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\pro;
+use App\Models\Home;
 use Illuminate\Http\Request;
 
-class ProController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class ProController extends Controller
      */
     public function index()
     {
-        //
+        $homes =  Home::all();
+        return view('backoffice.home.all', compact('homes'));
     }
 
     /**
@@ -41,10 +42,10 @@ class ProController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\pro  $pro
+     * @param  \App\Models\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function show(pro $pro)
+    public function show(Home $home)
     {
         //
     }
@@ -52,22 +53,22 @@ class ProController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\pro  $pro
+     * @param  \App\Models\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function edit(pro $pro)
+    public function edit(Home $home)
     {
-        //
+        return view('backoffice.home.edit', compact('home'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\pro  $pro
+     * @param  \App\Models\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, pro $pro)
+    public function update(Request $request, Home $home)
     {
         //
     }
@@ -75,10 +76,10 @@ class ProController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\pro  $pro
+     * @param  \App\Models\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function destroy(pro $pro)
+    public function destroy(Home $home)
     {
         //
     }

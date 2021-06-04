@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\icons;
+use App\Models\About;
 use Illuminate\Http\Request;
 
-class IconsController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class IconsController extends Controller
      */
     public function index()
     {
-        //
+        $abouts = About::all();
+        return view('backoffice.about.all', compact('abouts'));
     }
 
     /**
@@ -41,10 +42,10 @@ class IconsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\icons  $icons
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function show(icons $icons)
+    public function show(About $about)
     {
         //
     }
@@ -52,22 +53,22 @@ class IconsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\icons  $icons
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function edit(icons $icons)
+    public function edit(About $about)
     {
-        //
+        return view('backoffice.about.edit', compact('about'))
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\icons  $icons
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, icons $icons)
+    public function update(Request $request, About $about)
     {
         //
     }
@@ -75,10 +76,10 @@ class IconsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\icons  $icons
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function destroy(icons $icons)
+    public function destroy(About $about)
     {
         //
     }

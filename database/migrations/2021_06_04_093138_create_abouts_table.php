@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProsTable extends Migration
+class CreateAboutsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,14 @@ class CreateProsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pros', function (Blueprint $table) {
+        Schema::create('abouts', function (Blueprint $table) {
             $table->id();
+            $table->string('titre');
+            $table->string('description');
+            $table->string('paragraphe1');
+            $table->string('paragraphe2');
+            $table->string('paragraphe3');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateProsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pros');
+        Schema::dropIfExists('abouts');
     }
 }
