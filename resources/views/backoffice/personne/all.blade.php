@@ -1,9 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Services') }}
+            {{ __('Personne') }}
         </h2>
-        <x-nav-link :href="route('service.create')" :active="request()->routeIs('service.create')">
+        <x-nav-link :href="route('personne.create')" :active="request()->routeIs('personne.create')">
             {{ __('Create') }}
         </x-nav-link>
     </x-slot>
@@ -17,24 +17,26 @@
             <thead class="border-b-2 border-solid border-black">
                 <tr>
                     <th scope="col" class="p-5">Id</th>
-                    <th scope="col" class="p-5">Icone</th>
-                    <th scope="col" class="p-5">Titre</th>
-                    <th scope="col" class="p-5">Description</th>
+                    <th scope="col" class="p-5">Photo</th>
+                    <th scope="col" class="p-5">Nom</th>
+                    <th scope="col" class="p-5">Prenom</th>
+                    <th scope="col" class="p-5">Profession</th>
                     <th scope="col" class="p-5">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($services as $service)
+                @foreach ($personnes as $personne)
                     <tr class="border-b-2 border-solid">
-                        <th scope="row" class="text-center p-3">{{ $service->id }}</th>
-                        <td class="text-center p-3"><i class="{{ $service->icone2 }} text-2xl"></i></td>
-                        <td class="text-center p-3">{{ $service->titre }}</td>
-                        <td class="text-center p-3">{{ $service->description }}</td>
+                        <th scope="row" class="text-center p-3">{{ $personne->id }}</th>
+                        <td class="text-center p-3"> <a href="/personne/{{ $personne->id }}/download"><img src="{{ asset("img/testimonials/" . $personne->photo) }}" alt="" width="100"></a> </td>
+                        <td class="text-center p-3">{{ $personne->nom }}</td>
+                        <td class="text-center p-3">{{ $personne->prenom }}</td>
+                        <td class="text-center p-3">{{ $personne->profession }}</td>
                         <td class="text-center p-3">
                             <div class="flex justify-center p-3 items-center">
 
-                                <a class="bg-yellow-500 px-3 py-2 rounded m-1" href="/service/{{ $service->id }}/edit">Edit</a>
-                                <form action="/service/{{ $service->id }}" method="POST">
+                                <a class="bg-yellow-500 px-3 py-2 rounded m-1" href="/personne/{{ $personne->id }}/edit">Edit</a>
+                                <form action="/personne/{{ $personne->id }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button class="bg-red-600 px-3 py-2 rounded m-1">Delete</button>
@@ -42,7 +44,7 @@
                                 <form action="" method="post">
                 
                                 </form>
-                                <a href="/service/{{ $service->id }}" class="bg-blue-600 px-3 py-2 rounded m-1">
+                                <a href="/personne/{{ $personne->id }}" class="bg-blue-600 px-3 py-2 rounded m-1">
                                     Show
                                 </a>
                             </div>
